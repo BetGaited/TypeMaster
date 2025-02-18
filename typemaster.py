@@ -26,5 +26,16 @@ def main(page: ft.Page):
         else:
                 status_label.value = "Incorrect!"
                 status_label.color = "red"
+                mistakes += 1
+
+        current_index += 1
+        if current_index < len(words):
+                word_display.value = words[current_index]
+                progress_label.value = f"Progress: {current_index + 1}/{len(words)}"
+        else:
+            accuracy = ((len(words) - mistakes) / len(words)) * 100
+            accuracy_label.value = f"Accuracy: {accuracy:.2f}%"
+            input_field.disabled = True
+            status_label.value = "Game Over!"
 
 ft.app(target=main)
