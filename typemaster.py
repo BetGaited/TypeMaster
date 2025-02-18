@@ -16,4 +16,15 @@ def main(page: ft.Page):
     accuracy_label = ft.Text("Accuracy: 100%", size=16)
     input_field = ft.TextField(label="Type the word here", on_submit=lambda e: check_word(e, page))
 
+    def check_word(event, page):
+        nonlocal current_index, mistakes
+        user_input = input_field.value.strip()
+
+        if user_input.lower() == words[current_index].lower():
+                status_label.value = "Correct!"
+                status_label.color = "green"
+        else:
+                status_label.value = "Incorrect!"
+                status_label.color = "red"
+
 ft.app(target=main)
