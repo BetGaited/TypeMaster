@@ -37,5 +37,10 @@ def main(page: ft.Page):
             accuracy_label.value = f"Accuracy: {accuracy:.2f}%"
             input_field.disabled = True
             status_label.value = "Game Over!"
+        
+        input_field.value = ""
+        page.update()
+
+    page.add(word_display, input_field, status_label, progress_label, accuracy_label)
 
 ft.app(target=main)
