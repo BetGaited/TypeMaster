@@ -1,3 +1,4 @@
+import flet as ft
 import random
 
 def main(page: ft.Page):
@@ -8,3 +9,11 @@ def main(page: ft.Page):
 
     current_index = 0
     mistakes = 0
+
+    word_display = ft.Text(words[current_index], size=24, weight=ft.FontWeight.BOLD)
+    status_label = ft.Text("", size=20)
+    progress_label = ft.Text(f"Progress: {current_index + 1}/{len(words)}", size=16)
+    accuracy_label = ft.Text("Accuracy: 100%", size=16)
+    input_field = ft.TextField(label="Type the word here", on_submit=lambda e: check_word(e, page))
+
+ft.app(target=main)
